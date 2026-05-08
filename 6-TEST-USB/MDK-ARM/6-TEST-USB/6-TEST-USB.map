@@ -22,6 +22,7 @@ Section Cross References
     main.o(.text.main) refers to main.o(.text.SystemClock_Config) for SystemClock_Config
     main.o(.text.main) refers to main.o(.text.MX_GPIO_Init) for MX_GPIO_Init
     main.o(.text.main) refers to main.o(.text.MX_USART1_UART_Init) for MX_USART1_UART_Init
+    main.o(.text.main) refers to stm32f4xx_hal.o(.text.HAL_Delay) for HAL_Delay
     main.o(.text.main) refers to usb_device.o(.text.MX_USB_DEVICE_Init) for MX_USB_DEVICE_Init
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     main.o(.text.SystemClock_Config) refers to memseta.o(.text) for __aeabi_memclr4
@@ -1977,14 +1978,14 @@ Image Symbol Table
     __NVIC_SetPriorityGrouping               0x08006685   Thumb Code    60  stm32f4xx_hal_cortex.o(.text.__NVIC_SetPriorityGrouping)
     [Anonymous Symbol]                       0x08006684   Section        0  stm32f4xx_hal_cortex.o(.text.__NVIC_SetPriorityGrouping)
     [Anonymous Symbol]                       0x080066c0   Section        0  main.o(.text.main)
-    i.__scatterload_copy                     0x080066e0   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x080066ee   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x080066f0   Section       14  handlers.o(i.__scatterload_zeroinit)
-    .L.str.3                                 0x08006716   Data          14  usbd_desc.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08006716   Section        0  usbd_desc.o(.rodata.str1.1)
-    .L.str                                   0x08006724   Data          22  usbd_desc.o(.rodata.str1.1)
-    .L.str.2                                 0x0800673a   Data          11  usbd_desc.o(.rodata.str1.1)
-    .L.str.1                                 0x08006745   Data          19  usbd_desc.o(.rodata.str1.1)
+    i.__scatterload_copy                     0x080066e6   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x080066f4   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x080066f6   Section       14  handlers.o(i.__scatterload_zeroinit)
+    .L.str.3                                 0x0800671c   Data          14  usbd_desc.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x0800671c   Section        0  usbd_desc.o(.rodata.str1.1)
+    .L.str                                   0x0800672a   Data          22  usbd_desc.o(.rodata.str1.1)
+    .L.str.2                                 0x08006740   Data          11  usbd_desc.o(.rodata.str1.1)
+    .L.str.1                                 0x0800674b   Data          19  usbd_desc.o(.rodata.str1.1)
     HIDInEpAdd                               0x2000001c   Data           1  usbd_hid.o(.data.HIDInEpAdd)
     [Anonymous Symbol]                       0x2000001c   Section        0  usbd_hid.o(.data.HIDInEpAdd)
     HID_MOUSE_ReportDesc                     0x20000020   Data          74  usbd_hid.o(.data.HID_MOUSE_ReportDesc)
@@ -2261,14 +2262,14 @@ Image Symbol Table
     USB_SetTurnaroundTime                    0x080063bd   Thumb Code   442  stm32f4xx_ll_usb.o(.text.USB_SetTurnaroundTime)
     USB_WritePacket                          0x08006579   Thumb Code   130  stm32f4xx_ll_usb.o(.text.USB_WritePacket)
     UsageFault_Handler                       0x080065fd   Thumb Code     4  stm32f4xx_it.o(.text.UsageFault_Handler)
-    main                                     0x080066c1   Thumb Code    32  main.o(.text.main)
-    __scatterload_copy                       0x080066e1   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x080066ef   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x080066f1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    AHBPrescTable                            0x080066fe   Data          16  system_stm32f4xx.o(.rodata.AHBPrescTable)
-    APBPrescTable                            0x0800670e   Data           8  system_stm32f4xx.o(.rodata.APBPrescTable)
-    Region$$Table$$Base                      0x08006758   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08006778   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x080066c1   Thumb Code    38  main.o(.text.main)
+    __scatterload_copy                       0x080066e7   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x080066f5   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x080066f7   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    AHBPrescTable                            0x08006704   Data          16  system_stm32f4xx.o(.rodata.AHBPrescTable)
+    APBPrescTable                            0x08006714   Data           8  system_stm32f4xx.o(.rodata.APBPrescTable)
+    Region$$Table$$Base                      0x08006760   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08006780   Number         0  anon$$obj.o(Region$$Table)
     FS_Desc                                  0x20000000   Data          28  usbd_desc.o(.data.FS_Desc)
     SystemCoreClock                          0x2000006c   Data           4  system_stm32f4xx.o(.data.SystemCoreClock)
     USBD_FS_DeviceDesc                       0x20000070   Data          18  usbd_desc.o(.data.USBD_FS_DeviceDesc)
@@ -2292,9 +2293,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00006898, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000068a0, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00006778, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00006780, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2589,43 +2590,44 @@ Memory Map of the image
     0x08006640   0x08006640   0x00000042   Code   RO          664    .text.__NVIC_SetPriority  stm32f4xx_hal_cortex.o
     0x08006682   0x08006682   0x00000002   PAD
     0x08006684   0x08006684   0x0000003c   Code   RO          658    .text.__NVIC_SetPriorityGrouping  stm32f4xx_hal_cortex.o
-    0x080066c0   0x080066c0   0x00000020   Code   RO           11    .text.main          main.o
-    0x080066e0   0x080066e0   0x0000000e   Code   RO         1134    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x080066ee   0x080066ee   0x00000002   Code   RO         1135    i.__scatterload_null  mc_w.l(handlers.o)
-    0x080066f0   0x080066f0   0x0000000e   Code   RO         1136    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x080066fe   0x080066fe   0x00000010   Data   RO          950    .rodata.AHBPrescTable  system_stm32f4xx.o
-    0x0800670e   0x0800670e   0x00000008   Data   RO          951    .rodata.APBPrescTable  system_stm32f4xx.o
-    0x08006716   0x08006716   0x00000042   Data   RO          101    .rodata.str1.1      usbd_desc.o
-    0x08006758   0x08006758   0x00000020   Data   RO         1133    Region$$Table       anon$$obj.o
+    0x080066c0   0x080066c0   0x00000026   Code   RO           11    .text.main          main.o
+    0x080066e6   0x080066e6   0x0000000e   Code   RO         1134    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x080066f4   0x080066f4   0x00000002   Code   RO         1135    i.__scatterload_null  mc_w.l(handlers.o)
+    0x080066f6   0x080066f6   0x0000000e   Code   RO         1136    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08006704   0x08006704   0x00000010   Data   RO          950    .rodata.AHBPrescTable  system_stm32f4xx.o
+    0x08006714   0x08006714   0x00000008   Data   RO          951    .rodata.APBPrescTable  system_stm32f4xx.o
+    0x0800671c   0x0800671c   0x00000042   Data   RO          101    .rodata.str1.1      usbd_desc.o
+    0x0800675e   0x0800675e   0x00000002   PAD
+    0x08006760   0x08006760   0x00000020   Data   RO         1133    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08006778, Size: 0x00000f68, Max: 0x0001c000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08006780, Size: 0x00000f68, Max: 0x0001c000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08006778   0x0000001c   Data   RW           97    .data.FS_Desc       usbd_desc.o
-    0x2000001c   0x08006794   0x00000001   Data   RW         1094    .data.HIDInEpAdd    usbd_hid.o
-    0x2000001d   0x08006795   0x00000003   PAD
-    0x20000020   0x08006798   0x0000004a   Data   RW         1095    .data.HID_MOUSE_ReportDesc  usbd_hid.o
-    0x2000006a   0x080067e2   0x00000002   PAD
-    0x2000006c   0x080067e4   0x00000004   Data   RW          949    .data.SystemCoreClock  system_stm32f4xx.o
-    0x20000070   0x080067e8   0x00000012   Data   RW           98    .data.USBD_FS_DeviceDesc  usbd_desc.o
-    0x20000082   0x080067fa   0x00000002   PAD
-    0x20000084   0x080067fc   0x00000038   Data   RW         1093    .data.USBD_HID      usbd_hid.o
-    0x200000bc   0x08006834   0x00000022   Data   RW         1097    .data.USBD_HID_CfgDesc  usbd_hid.o
-    0x200000de   0x08006856   0x00000002   PAD
-    0x200000e0   0x08006858   0x00000009   Data   RW         1096    .data.USBD_HID_Desc  usbd_hid.o
-    0x200000e9   0x08006861   0x00000003   PAD
-    0x200000ec   0x08006864   0x0000000a   Data   RW         1098    .data.USBD_HID_DeviceQualifierDesc  usbd_hid.o
-    0x200000f6   0x0800686e   0x00000002   PAD
-    0x200000f8   0x08006870   0x00000004   Data   RW           99    .data.USBD_LangIDDesc  usbd_desc.o
-    0x200000fc   0x08006874   0x0000001a   Data   RW          100    .data.USBD_StringSerial  usbd_desc.o
-    0x20000116   0x0800688e   0x00000001   Data   RW          782    .data.uwTickFreq    stm32f4xx_hal.o
-    0x20000117   0x0800688f   0x00000001   PAD
-    0x20000118   0x08006890   0x00000004   Data   RW          781    .data.uwTickPrio    stm32f4xx_hal.o
-    0x2000011c   0x08006894   0x00000004   PAD
+    0x20000000   0x08006780   0x0000001c   Data   RW           97    .data.FS_Desc       usbd_desc.o
+    0x2000001c   0x0800679c   0x00000001   Data   RW         1094    .data.HIDInEpAdd    usbd_hid.o
+    0x2000001d   0x0800679d   0x00000003   PAD
+    0x20000020   0x080067a0   0x0000004a   Data   RW         1095    .data.HID_MOUSE_ReportDesc  usbd_hid.o
+    0x2000006a   0x080067ea   0x00000002   PAD
+    0x2000006c   0x080067ec   0x00000004   Data   RW          949    .data.SystemCoreClock  system_stm32f4xx.o
+    0x20000070   0x080067f0   0x00000012   Data   RW           98    .data.USBD_FS_DeviceDesc  usbd_desc.o
+    0x20000082   0x08006802   0x00000002   PAD
+    0x20000084   0x08006804   0x00000038   Data   RW         1093    .data.USBD_HID      usbd_hid.o
+    0x200000bc   0x0800683c   0x00000022   Data   RW         1097    .data.USBD_HID_CfgDesc  usbd_hid.o
+    0x200000de   0x0800685e   0x00000002   PAD
+    0x200000e0   0x08006860   0x00000009   Data   RW         1096    .data.USBD_HID_Desc  usbd_hid.o
+    0x200000e9   0x08006869   0x00000003   PAD
+    0x200000ec   0x0800686c   0x0000000a   Data   RW         1098    .data.USBD_HID_DeviceQualifierDesc  usbd_hid.o
+    0x200000f6   0x08006876   0x00000002   PAD
+    0x200000f8   0x08006878   0x00000004   Data   RW           99    .data.USBD_LangIDDesc  usbd_desc.o
+    0x200000fc   0x0800687c   0x0000001a   Data   RW          100    .data.USBD_StringSerial  usbd_desc.o
+    0x20000116   0x08006896   0x00000001   Data   RW          782    .data.uwTickFreq    stm32f4xx_hal.o
+    0x20000117   0x08006897   0x00000001   PAD
+    0x20000118   0x08006898   0x00000004   Data   RW          781    .data.uwTickPrio    stm32f4xx_hal.o
+    0x2000011c   0x0800689c   0x00000004   PAD
     0x20000120        -       0x00000001   Zero   RW         1044    .bss.USBD_SetConfig.cfgidx  usbd_ctlreq.o
-    0x20000121   0x08006894   0x00000003   PAD
+    0x20000121   0x0800689c   0x00000003   PAD
     0x20000124        -       0x00000200   Zero   RW          102    .bss.USBD_StrDesc   usbd_desc.o
     0x20000324        -       0x00000014   Zero   RW          173    .bss.USBD_static_malloc.mem  usbd_conf.o
     0x20000338        -       0x000002dc   Zero   RW           72    .bss.hUsbDeviceFS   usb_device.o
@@ -2635,7 +2637,7 @@ Memory Map of the image
     0x20000b68        -       0x00000400   Zero   RW            1    STACK               startup_stm32f407xx.o
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x2001c000, Load base: 0x08006898, Size: 0x00000000, Max: 0x00004000, ABSOLUTE)
+    Execution Region RW_IRAM2 (Exec base: 0x2001c000, Load base: 0x080068a0, Size: 0x00000000, Max: 0x00004000, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
@@ -2647,31 +2649,31 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       580          0          0          0         68       6005   main.o
+       586          0          0          0         68       6015   main.o
         36          8        392          0       1024        820   startup_stm32f407xx.o
-       270          0          0          5          4       7086   stm32f4xx_hal.o
-       482          0          0          0          0       9442   stm32f4xx_hal_cortex.o
-       996          0          0          0          0       5074   stm32f4xx_hal_gpio.o
-       304          0          0          0          0       4747   stm32f4xx_hal_msp.o
-      5102          0          0          0          0      14369   stm32f4xx_hal_pcd.o
-       192          0          0          0          0       4153   stm32f4xx_hal_pcd_ex.o
-      2646          0          0          0          0       7559   stm32f4xx_hal_rcc.o
-       468          0          0          0          0      20206   stm32f4xx_hal_uart.o
-        50          0          0          0          0       1087   stm32f4xx_it.o
-      5572          0          0          0          0      19114   stm32f4xx_ll_usb.o
-        18          0         24          4          0       2502   system_stm32f4xx.o
-        88          0          0          0        732       3076   usb_device.o
-      1370          4          0          0       1312      14354   usbd_conf.o
-      2120          0          0          0          0       8940   usbd_core.o
-      3360         30          0          0          1       8509   usbd_ctlreq.o
-       572          0         66         76        512       3212   usbd_desc.o
-      1076         22          0        184          0       6378   usbd_hid.o
-       178          0          0          0          0       4153   usbd_ioreq.o
+       270          0          0          5          4       7091   stm32f4xx_hal.o
+       482          0          0          0          0       9447   stm32f4xx_hal_cortex.o
+       996          0          0          0          0       5079   stm32f4xx_hal_gpio.o
+       304          0          0          0          0       4752   stm32f4xx_hal_msp.o
+      5102          0          0          0          0      14374   stm32f4xx_hal_pcd.o
+       192          0          0          0          0       4158   stm32f4xx_hal_pcd_ex.o
+      2646          0          0          0          0       7564   stm32f4xx_hal_rcc.o
+       468          0          0          0          0      20211   stm32f4xx_hal_uart.o
+        50          0          0          0          0       1092   stm32f4xx_it.o
+      5572          0          0          0          0      19119   stm32f4xx_ll_usb.o
+        18          0         24          4          0       2507   system_stm32f4xx.o
+        88          0          0          0        732       3081   usb_device.o
+      1370          4          0          0       1312      14359   usbd_conf.o
+      2120          0          0          0          0       8945   usbd_core.o
+      3360         30          0          0          1       8514   usbd_ctlreq.o
+       572          0         66         76        512       3217   usbd_desc.o
+      1076         22          0        184          0       6383   usbd_hid.o
+       178          0          0          0          0       4158   usbd_ioreq.o
 
     ----------------------------------------------------------------------
-     25680         64        514        284       3660     150786   Object Totals
+     25686         64        516        284       3660     150886   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       200          0          0         15          7          0   (incl. Padding)
+       200          0          2         15          7          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2712,15 +2714,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     25974         82        514        284       3660     150930   Grand Totals
-     25974         82        514        284       3660     150930   ELF Image Totals
-     25974         82        514        284          0          0   ROM Totals
+     25980         82        516        284       3660     151030   Grand Totals
+     25980         82        516        284       3660     151030   ELF Image Totals
+     25980         82        516        284          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                26488 (  25.87kB)
+    Total RO  Size (Code + RO Data)                26496 (  25.88kB)
     Total RW  Size (RW Data + ZI Data)              3944 (   3.85kB)
-    Total ROM Size (Code + RO Data + RW Data)      26772 (  26.14kB)
+    Total ROM Size (Code + RO Data + RW Data)      26780 (  26.15kB)
 
 ==============================================================================
 

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [6-TEST-USB\6-TEST-USB.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image 6-TEST-USB\6-TEST-USB.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Thu Jan 22 04:35:34 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Wed Mar  4 20:05:16 2026
 <BR><P>
 <H3>Maximum Stack Usage =        376 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -474,6 +474,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetCurrentMode
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[bd]"></a>HAL_GPIO_Init</STRONG> (Thumb, 950 bytes, Stack size 56 bytes, stm32f4xx_hal_gpio.o(.text.HAL_GPIO_Init))
@@ -491,9 +492,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[79]"></a>HAL_GetTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_hal.o(.text.HAL_GetTick))
-<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 
 <P><STRONG><a name="[dc]"></a>HAL_IncTick</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_hal.o(.text.HAL_IncTick))
@@ -1580,10 +1581,11 @@ Global Symbols
 <P><STRONG><a name="[5]"></a>UsageFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(.text.UsageFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, main.o(.text.main))
+<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = main &rArr; MX_USB_DEVICE_Init &rArr; USBD_Init &rArr; USBD_LL_Init &rArr; HAL_PCD_Init &rArr; USB_DevInit &rArr; USB_FlushTxFifo
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USB_DEVICE_Init
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init

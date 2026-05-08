@@ -90,6 +90,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
+	HAL_Delay(100);
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
